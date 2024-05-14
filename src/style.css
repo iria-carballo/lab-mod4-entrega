@@ -1,3 +1,72 @@
+.turno-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.numero-turno {
+  font-size: 6rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.texto-turno {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+
+.turno-botones {
+  display: flex;
+  gap: 1rem;
+
+}
+
+
+#boton-anterior{
+  background-color: lightcoral;
+  color: darkred;
+}
+
+#boton-siguiente{
+  background-color: lightgreen;
+  color: darkgreen;
+}
+
+.form-turno{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgb(240, 245, 249);
+  color: darkslategray;
+  font-weight: 600;
+  padding: 3rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+
+input{
+  padding: 1rem;
+  font-size: 18px;
+  color: darkslategrey;
+  border: 1px solid lightslategray;
+  border-radius: 0.5rem;
+}
+
+#boton-llamar {
+  background-color: rgb(212, 227, 242);
+  border: 1px solid darkslategrey;
+  color: darkslategrey;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -26,7 +95,10 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   min-width: 320px;
   min-height: 100vh;
 }
