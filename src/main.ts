@@ -1,62 +1,54 @@
-// Avanzar al turno siguiente//
-function escribirTurnoSiguiente() {
+function actualizarTurno(incremento : number){
+
     const turnoActual = document.getElementById("turno-actual");
+    if(turnoActual !== null && turnoActual !== undefined){
+         const turnoActualNumero :number = Number(turnoActual.innerHTML);
+         const turnoNuevo : number = turnoActualNumero + incremento;
+         const avanzarTurno = document.getElementById("turno-actual");
 
-    const turnoActualTexto = turnoActual?.innerText;
-
-    const turno = Number(turnoActualTexto);
- 
-    const turnoSiguiente = turno + 1;
+            if(avanzarTurno !== null && avanzarTurno !== undefined && turnoNuevo >= 0) {
+                avanzarTurno.innerHTML = turnoNuevo.toString().padStart(2, "0");
+            }
     
-    const avanzarTurno = document.getElementById("turno-actual");
-
-    if(avanzarTurno !== null && avanzarTurno !== undefined) {
-        avanzarTurno.innerText = turnoSiguiente.toString().padStart(2, "0");
     }
     
     
 }
 
 const botonSiguiente = document.getElementById("boton-siguiente");
-botonSiguiente?.addEventListener("click", escribirTurnoSiguiente);
-
-// Retroceder al turno anterior//
-
-function escribirTurnoAnterior() {
-    const turnoActual = document.getElementById("turno-actual");
-
-    const turnoActualTexto = turnoActual?.innerText;
-
-    const turno = Number(turnoActualTexto);
- 
-    const turnoAnterior = turno - 1;
-    
-    const retrocederTurno = document.getElementById("turno-actual");
-
-    if(retrocederTurno !== null && retrocederTurno !== undefined) {
-        retrocederTurno.innerText = turnoAnterior.toString().padStart(2, "0");
-    }
-    
-    
+if(botonSiguiente !== null && botonSiguiente !== undefined) {
+    botonSiguiente.addEventListener("click", () => actualizarTurno(1));
 }
 
 const botonAnterior = document.getElementById("boton-anterior");
-botonAnterior?.addEventListener("click", escribirTurnoAnterior);
-
+if(botonAnterior !== null && botonAnterior !== undefined) {
+    botonAnterior.addEventListener("click", () => actualizarTurno(-1));
+}
 
 
 // Caja de texto y un botón que permita cambiar el turno a un valor que ponga el operario//
 
 function escribirNumero() {
-    const campoNumero = (document.getElementById("numero-personalizado") as HTMLInputElement)
-    .value;
 
-    const nuevoTurno = document.getElementById("turno-actual");
+    const turnoActual = document.getElementById("turno-actual");
 
-    if(nuevoTurno !== null && nuevoTurno !== undefined) {
-    nuevoTurno.innerHTML = campoNumero.toString().padStart(2, "0");
+    const turnoPersonalizado = document.getElementById("numero-personalizado");
+
+    if(turnoPersonalizado instanceof HTMLInputElement) {
+        const numeroPersonalizado = parseInt(turnoPersonalizado.value);
+        if(
+        turnoActual !== null &&
+        turnoActual !== undefined &&
+        numeroPersonalizado !== null &&
+        numeroPersonalizado !== undefined ) {
+        turnoActual.innerHTML = numeroPersonalizado.toString().padStart(2, "0");
+        }
+    
+    
     }
 }
 
 const botonLlamar = document.getElementById("boton-llamar");
-botonLlamar?.addEventListener("click", escribirNumero);
+if(botonLlamar !== null && botonLlamar !== undefined) {
+    botonLlamar.addEventListener("click",escribirNumero);
+}
